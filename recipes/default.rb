@@ -8,16 +8,19 @@ if ::File.exist?("/etc/motd")
   end
 end
 
-cookbook_file "/etc/motd" do
-  source "motd.inprogress"
+file "/etc/motd" do
+  content node['motd_handler']['in_progress_message']
   mode 0644
   owner "root"
   group "root"
 end
 
-cookbook_file "#{node['chef_handler']['handler_path']}/motd.rb" do
-  source 'motd.rb'
-  action :nothing
+template "#{node['chef_handler']['handler_path']}/motd.rb" do
+  owner 'root'
+  group 'root'
+  mode '600'
+  source 'motd.rb.erb'
+  variables :failure_message => node['motd_handler']['failure_message'] 
 end.run_action(:create)
 
 chef_handler "Chef::Handler::Motd" do

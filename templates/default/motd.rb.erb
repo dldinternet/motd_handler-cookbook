@@ -10,7 +10,7 @@ class Motd < Chef::Handler
       FileUtils.cp '/tmp/motd', '/etc/motd'
     else
       f = File.open("/etc/motd", "w")
-      f.write("\n\033[07;05;04;01;32;45m  **** Chef Run FAILED ****\033[0m\n")
+      f.write("<%= @failure_message %>")
       f.close
     end
   end
