@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/intuit/motd_handler-cookbook.png)](http://travis-ci.org/intuit/motd_handler-cookbook)
+
 # motd_handler-cookbook
 Updates /etc/motd that Chef is currently running or failed.
 
