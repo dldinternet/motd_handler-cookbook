@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'berkshelf'
-gem 'thor-foodcritic'
+gem 'emeril', '~> 0.7.0'
+gem 'foodcritic', '~> 2.1.0'
